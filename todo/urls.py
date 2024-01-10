@@ -14,5 +14,7 @@ urlpatterns = [
     path("tags/create/", TagCreateView.as_view(), name="tag_create"),
     path("tags/update/<int:pk>", TagUpdateView.as_view(), name="tag_update"),
     path("tags/delete/<int:pk>", TagDeleteView.as_view(), name="tag_delete"),
-    path("task/done/<int:pk>", TaskDoneView.taskdone, name="tag_delete"),
+    path("task/done/<int:pk>", TaskDoneView.taskdone, name="task_done"),
 ]
+
+app_name = "todo"
