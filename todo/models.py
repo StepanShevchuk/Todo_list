@@ -13,7 +13,7 @@ class Task(models.Model):
     datetime = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField(null=True)
     done = models.BooleanField(default=False)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, related_name="tasks")
 
     class Meta:
         ordering = ["done", "-datetime"]
