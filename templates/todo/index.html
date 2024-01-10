@@ -14,7 +14,7 @@
             <h3>{{ task.content }} </h3><h5>done:{{ task.done }}</h5>
             <p>{{ task.datetime }}</p>
             <p>{% for tag in task.tags.all %} {{ tag.name }} {% endfor %}</p>
-            <form action="{% url "todo:task_done" pk=task.id%}" method="post">
+            <form action="{% url "todo:task_done" pk=task.id%}">
                 {% csrf_token %}
                 <button type="submit">
                     {% if task.done %}
