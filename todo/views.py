@@ -44,11 +44,10 @@ class TagDeleteView(generic.DeleteView):
     success_url = reverse_lazy("todo:tags_list")
 
 
-class TaskDoneView(generic.ListView):
-    @classmethod
-    def taskdone(cls, request, pk):
-        task = Task.objects.get(id=pk)
+class TaskDoneView(generic.DeleteView):
+    def post(self, request, *args, **kwargs):
+        task = Task.objects.get(id=kwargs.get("pk"))
         if request.method == "POST":
-            task.done = not(task.done)
+            task.done = not (task.done)
             task.save()
         return HttpResponseRedirect(reverse_lazy(f"todo:index"))
